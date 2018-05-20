@@ -22,7 +22,7 @@ public class Program
         Customer c1 = new Customer("joe");
         c1.addRental(r1);   c1.addRental(r2);   
         System.out.println("Let's get the Statement");
-        System.out.println(c1.statement());
+        System.out.println(c1.getCustomerInfo());
     }
 }
 
