@@ -22,8 +22,8 @@ class Customer {
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        String result = "Rental Record for " + getName() + "\n";
-        result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
+        StringBuilder result = new StringBuilder("Rental Record for " + this.getName() + "\n");
+        result.append("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n");
 
         for (Rental nextRental : rentals) {
             double thisAmount = 0;
@@ -35,7 +35,7 @@ class Customer {
             if ((nextRental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && nextRental.getDaysRented() > 1)
                 frequentRenterPoints ++;
             //show figures for this rental
-            result += "\t" + nextRental.getMovie().getTitle()+ "\t" + "\t" + nextRental.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
+            result.append("\t").append(each.getMovie().getTitle()).append("\t").append("\t").append(each.getDaysRented()).append("\t").append(String.valueOf(thisAmount)).append("\n");
             totalAmount += thisAmount;
         }
         //add footer lines
