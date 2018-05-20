@@ -39,7 +39,7 @@ class Customer {
         return totalAmount;
     }
 
-    public String statement() {
+    public String getCustomerInfo() {
         StringBuilder result = new StringBuilder("Rental Record for " + this.getName() + "\n");
         result.append("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n");
 
