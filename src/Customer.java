@@ -32,8 +32,6 @@ class Customer {
     }
 
     public String statement() {
-        double totalAmount = 0;
-
         StringBuilder result = new StringBuilder("Rental Record for " + this.getName() + "\n");
         result.append("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n");
 
