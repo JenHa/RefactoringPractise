@@ -31,33 +31,12 @@ class Customer {
         return frequentRenterPoints;
     }
 
-    public String statement() {
-        StringBuilder result = new StringBuilder("Rental Record for " + this.getName() + "\n");
-        result.append("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n");
-
-        for (Rental nextRental : rentals) {
-            double thisAmount = 0;
-            //determine amounts for nextRental line
-            thisAmount = amountFor(nextRental);
-            //show figures for this rental
-            result.append("\t")
-                    .append(each.getMovie().getTitle())
-                    .append("\t")
-                    .append("\t")
-                    .append(each.getDaysRented())
-                    .append("\t")
-                    .append(String.valueOf(thisAmount))
-                    .append("\n");
-            totalAmount += thisAmount;
+    private double getTotalAmount() {
+        double totalAmount = 0;
+        for (Rental each : rentals) {
+            totalAmount += amountFor(each);
         }
-        //add footer lines
-        result.append("Amount owed is ")
-                .append(String.valueOf(totalAmount))
-                .append("\n");
-        result.append("You earned ")
-                .append(getFrequentRenterPoints())
-                .append(" frequent renter points");
-        return result.toString();
+        return totalAmount;
     }
 
     private double amountFor(Rental rental) {
@@ -81,6 +60,33 @@ class Customer {
         }
         return thisAmount;
     }
+
+    public String statement() {
+        StringBuilder result = new StringBuilder("Rental Record for " + this.getName() + "\n");
+        result.append("\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n");
+
+        for (Rental nextRental : rentals) {
+            //show figures for this rental
+            result.append("\t")
+                    .append(each.getMovie().getTitle())
+                    .append("\t")
+                    .append("\t")
+                    .append(each.getDaysRented())
+                    .append("\t")
+                    .append(String.valueOf(amountFor(nextRental)))
+                    .append("\n");
+        }
+        //add footer lines
+        result.append("Amount owed is ")
+                .append(String.valueOf(getTotalAmount()))
+                .append("\n");
+        result.append("You earned ")
+                .append(getFrequentRenterPoints())
+                .append(" frequent renter points");
+        return result.toString();
+    }
+
+
 
 }
     
