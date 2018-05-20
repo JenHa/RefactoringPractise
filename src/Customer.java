@@ -7,8 +7,8 @@ class Customer {
     private String name;
     private List<Rental> rentals = new ArrayList<>();
 
-    public Customer (String newname){
-        name = newname;
+    public Customer (String newName){
+        name = newName;
     }
 
     public void addRental(Rental rental) {
@@ -51,7 +51,7 @@ class Customer {
             case Movie.NEW_RELEASE:
                 thisAmount += rental.getDaysRented() * 3;
                 break;
-            case Movie.CHILDRENS:
+            case Movie.CHILDREN
                 thisAmount += 1.5;
                 if (rental.getDaysRented() > 3) {
                     thisAmount += (rental.getDaysRented() - 3) * 1.5;
