@@ -39,9 +39,9 @@ class Customer {
             totalAmount += thisAmount;
         }
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
-        return result;
+        result.append("Amount owed is ").append(String.valueOf(totalAmount)).append("\n");
+        result.append("You earned ").append(String.valueOf(frequentRenterPoints)).append(" frequent renter points");
+        return result.toString();
     }
 
     private double amountFor(Rental rental) {
